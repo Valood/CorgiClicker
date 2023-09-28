@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "styles/style.css" %}></link>
+    <link rel="stylesheet" href={% static "styles/game.css" %}></link>
+    <title>Clicker</title>
+</head>
+{% csrf_token %}
+<body>
+    <div class="game">
+        <div class="game__col boosters">
+            <h2 class="boosters__title">Бустеры клика</h2>
+            <ul class="boosters__list">
+                <li class="boosters__item">
+                    <img src={% static 'img/ball.svg'%} alt="Мячик" class="boosters__icon">
+                    <p class="boosters__level">Мячик (+1)</p>
+                    <div  class="boosters__shop">
+                        <button id="ball" class="boosters__buy">Купить</button>
+                        <p class="boosters__price">10 ед.</p>
+                    </div>
+                    
+                </li>
+                <li class="boosters__item">
+                    <img src={% static 'img/boomerang.svg'%} alt="Бумеранг" class="boosters__icon">
+                    <p class="boosters__level">Бумеранг (+5)</p>
+                    <div  class="boosters__shop">
+                        <button id="boomerang" class="boosters__buy">Купить</button>
+                        <p class="boosters__price">100 ед.</p>
+                    </div>
+                </li>
+                <li class="boosters__item">
+                    <img src={% static 'img/toy.svg'%} alt="Игрушка" class="boosters__icon">
+                    <p class="boosters__level">Игрушка (+10)</p>
+                    <div  class="boosters__shop">
+                        <button id="toy" class="boosters__buy">Купить</button>
+                        <p class="boosters__price">1000 ед.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="game__col">
+            <h2 id="score">У вас 0 корги</h2>
+            <button id="clicker">
+                <img src={% static 'img/korgi.png'%} alt="Тыкалка">
+            </button>
+            <h2 id="force">Корги за клик: 1</h2>
+            <h2 id="autoBoost">Корги в секунду: 0</h2>
+        </div>
+        <div class="game__col boosters">
+            <h2 class="boosters__title">Автоматические бустеры</h2>
+            <ul class="boosters__list">
+                <li class="boosters__item">
+                    <img src={% static 'img/bone.svg'%} alt="Мячик" class="boosters__icon">
+                    <p class="boosters__level">Кость (+1)</p>
+                    <div class="boosters__shop">
+                        <button id="bone" class="boosters__buy">Купить</button>
+                        <p class="boosters__price">10 ед.</p>
+                    </div>
+                </li>
+                <li class="boosters__item">
+                    <img src={% static 'img/food.svg'%} alt="Корм" class="boosters__icon">
+                    <p class="boosters__level">Корм (+5)</p>
+                    <div class="boosters__shop">
+                        <button id="food" class="boosters__buy">Купить</button>
+                        <p class="boosters__price">100 ед.</p>
+                    </div>
+                </li>
+                <li class="boosters__item">
+                    <img src={% static 'img/steak.svg'%} alt="Мясо" class="boosters__icon">
+                    <p class="boosters__level">Мясо (+10)</p>
+                    <div class="boosters__shop">
+                        <button id="steak" class="boosters__buy">Купить</button>
+                        <p class="boosters__price">1000 ед.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <form action="/logout">
+            <button type="submit" class="game__exit">Выйти</button>
+        </form>
+    </div>
+</body>
+{% csrf_token %}
+<script src={% static 'scripts/game.js'%}></script>
+{% csrf_token %}
+</html>

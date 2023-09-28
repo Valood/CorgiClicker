@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "styles/style.css" %}></link>
+    <link rel="stylesheet" href={% static "styles/login.css" %}></link>
+    <title>Clicker</title>
+</head>
+<body>
+    <div class="login">
+        <h1>Авторизация</h1>
+        <form class="login__form" method="post" action="">
+            {% csrf_token %}
+            <div class="login__field">
+                <label>Логин</label>
+                <input id="username" type="text" name="username">
+            </div>
+            <div class="login__field">
+                <label>Пароль</label>
+                <input id="password" type="password" name="password">
+            </div>
+            <button id="submitButton" type="submit" class="login__submit">Войти</button>
+        </form>
+
+    </div>
+</body>
+{% csrf_token %}
+<script src={% static 'scripts/login.js'%}></script>
+{% csrf_token %}
+</html>
